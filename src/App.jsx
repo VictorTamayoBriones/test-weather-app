@@ -1,8 +1,5 @@
-function App() {
+import { AppRoutes } from './routes';
 
-  return (
-    <h2>Test Weather App</h2>
-  )
-}
+const App = () => <AppRoutes/>
 
 export default App
