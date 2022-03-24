@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { UserContext } from '../context/userContext';
 import { useNavigate } from 'react-router-dom';
 
 export const useLogup = () =>{
 
+    const {currentUser, setCurrentUser}=useContext(UserContext);
     const navigate = useNavigate();
 
     const[user, setUser]=useState('');
     const[pass, setPass]=useState('');
-    const[repatPass, setRepeatPass]=useState('');
+    const[repeatPass, setRepeatPass]=useState('');
     const[birthDate, setBirthDate]=useState('');
     const[err, setErr]=useState({
         user:{
@@ -28,8 +30,6 @@ export const useLogup = () =>{
         }
     });
 
-    const[userCreated, setUserCreated]=useState({});
-
     const handleChange = ({target: {name, value}}) =>{
         if( name === 'user' ){
             setUser(value)
@@ -37,21 +37,28 @@ export const useLogup = () =>{
             setPass(value)
         }else if( name === 'repeatPass' ){
             setRepeatPass(value)
-        }else if( name === 'birthDate' ){
+        }else if( name === 'birth' ){
             setBirthDate(value)
         }
     }
 
     const verifyNewUser = ()=>{
-        if( user != '' && pass != '' && repatPass != '' && birthDate != '' ){
-            if( user === currentUser.user && pass === currentUser.pass ){
+        if( user != '' && pass != '' && repeatPass != '' && birthDate != '' ){
+            
+            if( pass === repeatPass ){
+                setCurrentUser({
+                    user,
+                    pass,
+                    birthDate
+                })
                 console.log('User Created Succesfully')
-                navigate('/dashboard')
+                navigate('/')
                 setUser('')
                 setPass('')
                 setRepeatPass('')
                 setBirthDate('')
             }
+
         }else if( user === '' && pass === '' && repeatPass === '' && birthDate === '' ){
             setErr({
                 user:{
@@ -75,7 +82,7 @@ export const useLogup = () =>{
             setErr({...err, user:{errStateUser: true, errTextUser: 'You need to complete'}})
         }else if( pass === '' ){
             setErr({...err, pass:{errStatePass: true, errTextPass: 'You need to complete'}})
-        }else if( repatPass === '' ){
+        }else if( repeatPass === '' ){
             setErr({...err, repeatPass:{errStateRepeat: true, errTextRepeat: 'You need to complete'}})
         }else if( birthDate === '' ){
             setErr({...err, birthDate:{errStateBirth: true, errTextBirth: 'You need to complete'}})
@@ -90,6 +97,8 @@ export const useLogup = () =>{
     return{
         user,
         pass,
+        repeatPass,
+        birthDate,
         handleChange,
         handleSubmit,
         err

@@ -15,7 +15,7 @@ export const Login  = () =>{
             <AsideLogin/>
             <LoginForm onSubmit={ handleSubmit } >
                 <MainTitle>Weather App</MainTitle>
-                <Input label="Users" type="text" placeholder="Example: test-user" name="user" value={ user } onChange={ handleChange } errText={ errStateUser ? errTextUser : '' } />
+                <Input label="Users" type="email" placeholder="Example: test@gmail.com" name="user" value={ user } onChange={ handleChange } errText={ errStateUser ? errTextUser : '' } />
                 <Input label="Password" type="password" placeholder="Password..." name="pass" value={ pass } onChange={ handleChange }  errText={ errStatePass ? errTextPass : '' } />
                 <Button>Login</Button>
                 <Link to="/logup" >You don't have account?, sign up here</Link>               

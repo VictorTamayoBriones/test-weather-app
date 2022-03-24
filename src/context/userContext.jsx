@@ -5,7 +5,7 @@ export const UserContext = React.createContext();
 export const UserProvider = ({children}) =>{
 
     const[currentUser, setCurrentUser]=useState({
-        user: "test-user",
+        user: "test@gmail.com",
         pass: "test123456"
     });
 
