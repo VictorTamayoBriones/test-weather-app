@@ -35,7 +35,15 @@ export const useLogin = () =>{
                 navigate('/dashboard')
                 setUser('')
                 setPass('')
+            }else if( user != currentUser.user ){
+                setErr({...err, user:{errStateUser: true, errTextUser: 'user is not correct'}})
+            }else if( pass != currentUser.pass ){
+                setErr({...err, pass:{errStatePass: true, errTextPass: 'password is not correct'}})
+            }else if( user != currentUser.user && pass != currentUser.pass ){
+                setErr({...err, user:{errStateUser: true, errTextUser: 'user is not correct'}})
+                setErr({...err, pass:{errStatePass: true, errTextPass: 'password is not correct'}})
             }
+
         }else if( user === '' && pass === '' ){
             setErr({
                 user:{
