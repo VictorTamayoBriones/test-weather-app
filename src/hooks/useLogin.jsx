@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { UserContext } from '../context/userContext';
 import { useNavigate } from 'react-router-dom';
 
 export const useLogin = () =>{
 
+    const { currentUser }=useContext(UserContext);
     const navigate = useNavigate();
 
     const[user, setUser]=useState('');
@@ -16,11 +18,6 @@ export const useLogin = () =>{
             errStatePass: false,
             errTextPass: ''
         }
-    });
-
-    const[currentUser, setCurrentUser]=useState({
-        user: "test-user",
-        pass: "test123456"
     });
 
     const handleChange = ({target: {name, value}}) =>{
