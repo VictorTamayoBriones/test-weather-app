@@ -7,7 +7,7 @@ export const InputBox = styled.div`
     flex-direction: column;
     gap: 8px;
     label{
-        color: ${ theme.verde };
+        color: ${ theme.azul };
         font-size: 22px;
     }
     input{

@@ -7,7 +7,7 @@ export const AsideLoginContainer = styled.aside`
     background: ${ theme.azul };
     color: transparent;
     overflow: hidden;
-    font-size: 53px;
+    font-size: 55px;
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
     letter-spacing: 5px;

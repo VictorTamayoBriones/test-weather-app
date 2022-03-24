@@ -6,4 +6,8 @@ export const MainTitle = styled.h1`
     color: ${ theme.naranja };
     letter-spacing: 5px;
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+
+    @media(max-width: 740px){
+        font-size: 50px !important;
+    }
 `
