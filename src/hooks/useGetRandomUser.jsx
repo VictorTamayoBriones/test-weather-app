@@ -12,7 +12,7 @@ export const useGetRandomUser = () =>{
     useEffect(()=>{
         getFormatUser()
     }, [])
-    console.log(userRandom)
+    
     return {
         userRandom, setUserRandom
     }

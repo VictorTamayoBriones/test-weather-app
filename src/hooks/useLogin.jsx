@@ -31,7 +31,7 @@ export const useLogin = () =>{
     const verifyUser = ()=>{
         if( user != '' && pass != '' ){
             if( user === currentUser.user && pass === currentUser.pass ){
-                console.log('Perfect man')
+                
                 setCurrentUser({
                     ...currentUser,activate:true
                 })

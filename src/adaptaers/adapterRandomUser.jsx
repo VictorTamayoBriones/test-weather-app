@@ -6,6 +6,7 @@ export const adapterUser = async () =>{
         name: `${user.name.title} ${user.name.first} ${user.name.last}`,
         gender: user.gender,
         location: `${user.location.city} ${user.location.state} ${user.location.country}`,
+        locationWeather: user.location.city,
         cell: user.cell,
         photo: user.picture.large
     }
