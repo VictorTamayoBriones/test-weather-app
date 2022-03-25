@@ -7,29 +7,31 @@ export const useGetWeather =  () =>{
 
     const { userRandom } = useContext(UserContext);
 
+    const[weather, setWeather]=useState({})
     const[formatWeather, setFormatWeather]=useState({});
 
-    const apiKey = '25745ce0da2954b896c845ab208d6851';
+    const apiKey = 'dc5682dc88229268653b08b1d1fd5e70';
     const city = userRandom.locationWeather;
+    
+    const getWeather = async () =>{
+        try{
+            const res = await axios(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+            setWeather(res.data)
 
-    const weatherFormat = async ()=>{
-        const format = await getWeather(apiKey, city)
-        
-        setFormatWeather({
-            cityName: format.name,
-            temp: format.main.temp,
-            feels: format.main.feels_like,
-            temp_max: format.main.temp_max,
-            temp_min: format.main.temp_min,
-            icon: format.weather[0].icon,
-            desc: format.weather[0].description
-        });
+            setFormatWeather({
+                cityName: weather.name,
+                temp: weather.main.temp,
+                feels: weather.main.feels_like,
+                temp_max: weather.main.temp_max,
+                temp_min: weather.main.temp_min,
+                icon: weather.weather[0].icon,
+                desc: weather.weather[0].description
+            });
+        }catch(err){
+            console.log(err.response)
+        }
     }
     
-    useEffect(()=>{
-        weatherFormat()
-    }, [])
-
     return {formatWeather, getWeather}
 }
 

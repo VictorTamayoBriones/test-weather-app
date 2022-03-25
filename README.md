@@ -20,3 +20,11 @@ user: test@gmail.com
 password: test123456
 
 You can create a user and then login with that user
+
+## ScreenShots
+
+![login](./src/images/login.png)
+
+![signup](./src/images/signup.png)
+
+![dashboard](./src/images/dashboard.png)
