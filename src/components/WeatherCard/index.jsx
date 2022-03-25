@@ -1,10 +1,15 @@
 import { Card } from "../../styled-components/Card"
 import { useGetWeather } from '../../hooks/useGetWeather';
+import { useEffect } from "react"
 
 export const WeatherCard = () =>{
 
-    const formatWeather = useGetWeather()
+    const {formatWeather, getWeather} = useGetWeather()
     
+    useEffect(()=>{
+        getWeather()
+    }, [])
+
     return(
         <Card>
             <img src={`http://openweathermap.org/img/wn/${formatWeather.icon}@2x.png`} alt="" />
