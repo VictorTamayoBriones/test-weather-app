@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const useLogin = () =>{
 
-    const { currentUser }=useContext(UserContext);
+    const { currentUser, setCurrentUser }=useContext(UserContext);
     const navigate = useNavigate();
 
     const[user, setUser]=useState('');
@@ -32,6 +32,9 @@ export const useLogin = () =>{
         if( user != '' && pass != '' ){
             if( user === currentUser.user && pass === currentUser.pass ){
                 console.log('Perfect man')
+                setCurrentUser({
+                    ...user,activate:true
+                })
                 navigate('/dashboard')
                 setUser('')
                 setPass('')

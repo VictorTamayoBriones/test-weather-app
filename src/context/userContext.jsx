@@ -6,7 +6,9 @@ export const UserProvider = ({children}) =>{
 
     const[currentUser, setCurrentUser]=useState({
         user: "test@gmail.com",
-        pass: "test123456"
+        pass: "test123456",
+        location: 'Texas',
+        activate: false
     });
 
     return(
