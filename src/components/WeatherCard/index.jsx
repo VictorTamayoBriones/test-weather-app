@@ -8,7 +8,7 @@ export const WeatherCard = () =>{
     
     useEffect(()=>{
         getWeather()
-    }, [])
+    })
 
     return(
         <Card>
