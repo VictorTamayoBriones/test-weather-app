@@ -33,7 +33,7 @@ export const useLogin = () =>{
             if( user === currentUser.user && pass === currentUser.pass ){
                 console.log('Perfect man')
                 setCurrentUser({
-                    ...user,activate:true
+                    ...currentUser,activate:true
                 })
                 navigate('/dashboard')
                 setUser('')

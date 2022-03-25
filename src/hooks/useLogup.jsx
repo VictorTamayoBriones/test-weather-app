@@ -49,7 +49,8 @@ export const useLogup = () =>{
                 setCurrentUser({
                     user,
                     pass,
-                    birthDate
+                    birthDate,
+                    activate: false
                 })
                 console.log('User Created Succesfully')
                 navigate('/')

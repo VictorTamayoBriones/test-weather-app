@@ -1,5 +1,12 @@
+import { UserCard } from "../../components/UserCard"
+import { WeatherCard } from "../../components/WeatherCard"
+import { DashboardContainer } from "./style"
+
 export const Dashboard = () =>{
     return(
-        <h2>DashBoard</h2>
+        <DashboardContainer>
+            <UserCard/>
+            <WeatherCard/>
+        </DashboardContainer>
     )
 }
