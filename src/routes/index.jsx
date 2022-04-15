@@ -7,7 +7,6 @@ import { UserContext } from '../context/userContext';
 
 export const AppRoutes = ()=>{
 
-    const navigate = useNavigate();
     const { currentUser } = useContext(UserContext);
 
     return(

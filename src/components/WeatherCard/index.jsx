@@ -1,23 +1,16 @@
 import { Card } from "../../styled-components/Card"
 import { useGetWeather } from '../../hooks/useGetWeather';
-import { useEffect } from "react"
 
 export const WeatherCard = () =>{
-
-    const {formatWeather, getWeather} = useGetWeather()
-    
-    useEffect(()=>{
-        getWeather()
-    })
-
+    const weather = useGetWeather()
     return(
         <Card>
-            <img src={`http://openweathermap.org/img/wn/${formatWeather.icon}@2x.png`} alt="" />
-            <h2>Weather of { formatWeather.cityName } - { formatWeather.desc }</h2>
-            <p><span>Temp: </span>{ formatWeather.temp } ºC</p>
-            <p><span>Feels like: </span>{ formatWeather.feels } ºC</p>
-            <p><span>Temp Max: </span>{ formatWeather.temp_max } ºC</p>
-            <p><span>Temp Min: </span>{ formatWeather.temp_min } ºC</p>
+            <img src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`} alt="" />
+            <h2>Weather of { weather.cityName } - { weather.desc }</h2>
+            <p><span>Temp: </span>{ weather.temp } ºC</p>
+            <p><span>Feels like: </span>{ weather.feels } ºC</p>
+            <p><span>Temp Max: </span>{ weather.temp_max } ºC</p>
+            <p><span>Temp Min: </span>{ weather.temp_min } ºC</p>
         </Card>
     )
 }
