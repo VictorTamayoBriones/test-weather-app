@@ -21,4 +21,7 @@ export const Card = styled.div`
         font-weight: 700;
         letter-spacing: .5px;
     }
+    @media(max-width: 700px){
+        width: 90%;
+    }
 `;

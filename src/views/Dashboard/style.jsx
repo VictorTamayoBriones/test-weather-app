@@ -5,4 +5,8 @@ export const DashboardContainer = styled.div`
     height: 100vh;
     display: flex;
     justify-content: space-between;
+    @media (max-width: 700px){
+        flex-direction: column;
+        align-items: center;
+    }
 `;
